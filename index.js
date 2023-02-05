@@ -1,5 +1,6 @@
 //@ts-check
 
+import { HexGrid } from "./grids/hex-grid.js";
 import { Hexagon } from "./shapes/hexagon.js";
 
 /** @type {HTMLCanvasElement} */ //@ts-ignore
@@ -16,6 +17,8 @@ addEventListener("resize", () => {
 	canvas.height = window.innerHeight;
 });
 
-let hex = new Hexagon(ctx, 50, 50, 20);
+let hex = new Hexagon(ctx, 0, 0, 12);
 hex.isFilled = false;
-hex.draw();
+
+let hexGrid = new HexGrid(ctx, 100, 100, hex);
+hexGrid.draw();
